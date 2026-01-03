@@ -3,6 +3,8 @@ const webpack = require("@nativescript/webpack");
 module.exports = (env) => {
 	webpack.init(env);
 
+	 webpack.useConfig('vue');
+
 	// Learn how to customize:
 	// https://docs.nativescript.org/webpack
 

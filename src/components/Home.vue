@@ -33,10 +33,23 @@ onUnmounted(() => {
   <Frame>
     <Page>
       <ActionBar>
-        <Label text="Home" class="font-bold text-lg" />
+        <Label text="Home" style="font-size: 20%" />
       </ActionBar>
 
-      <GridLayout rows="*, auto, auto, *" class="px-4">
+      <div>
+        <div class="body">
+          <div class="wrapper">
+            <div class="box header">Header</div>
+            <div class="box sidebar">Sidebar</div>
+            <div class="box sidebar2">Sidebar 2</div>
+            <div class="box content">Content<br />More content than we had before so this column is now quite tall.
+            </div>
+            <div class="box footer">Footer</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <GridLayout rows="*, auto, auto, *" class="px-4">
         <Label
           row="1"
           class="text-xl align-middle text-center text-gray-500"
@@ -52,7 +65,7 @@ onUnmounted(() => {
         >
           View Details
         </Button>
-      </GridLayout>
+      </GridLayout> -->
     </Page>
   </Frame>
 </template>

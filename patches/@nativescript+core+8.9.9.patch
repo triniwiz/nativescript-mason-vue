@@ -1,0 +1,58 @@
+diff --git a/node_modules/@nativescript/core/ui/core/properties/index.js b/node_modules/@nativescript/core/ui/core/properties/index.js
+index 63ffeb4..710db5b 100644
+--- a/node_modules/@nativescript/core/ui/core/properties/index.js
++++ b/node_modules/@nativescript/core/ui/core/properties/index.js
+@@ -161,7 +161,7 @@ export class Property {
+                 wrapped = boxedValue && boxedValue.wrapped;
+                 value = wrapped ? WrappedValue.unwrap(boxedValue) : boxedValue;
+                 if (valueConverter && typeof value === 'string') {
+-                    value = valueConverter(value);
++                    value = valueConverter.call(this,value);
+                 }
+             }
+             const oldValue = (key in this ? this[key] : defaultValue);
+@@ -326,7 +326,7 @@ export class CoercibleProperty extends Property {
+                 wrapped = boxedValue && boxedValue.wrapped;
+                 value = wrapped ? WrappedValue.unwrap(boxedValue) : boxedValue;
+                 if (valueConverter && typeof value === 'string') {
+-                    value = valueConverter(value);
++                    value = valueConverter.call(this,value);
+                 }
+                 this[coerceKey] = value;
+                 value = coerceCallback(this, value);
+@@ -511,7 +511,7 @@ export class CssProperty {
+             }
+             else {
+                 this[sourceKey] = 3 /* ValueSource.Local */;
+-                value = valueConverter && typeof newValue === 'string' ? valueConverter(newValue) : newValue;
++                value = valueConverter && typeof newValue === 'string' ? valueConverter.call(this,newValue) : newValue;
+             }
+             const oldValue = (key in this ? this[key] : defaultValue);
+             const changed = equalityComparer ? !equalityComparer(oldValue, value) : oldValue !== value;
+@@ -589,7 +589,7 @@ export class CssProperty {
+                 delete this[sourceKey];
+             }
+             else {
+-                value = valueConverter && typeof newValue === 'string' ? valueConverter(newValue) : newValue;
++                value = valueConverter && typeof newValue === 'string' ? valueConverter.call(this,newValue) : newValue;
+                 this[sourceKey] = 2 /* ValueSource.Css */;
+             }
+             const oldValue = (key in this ? this[key] : defaultValue);
+@@ -756,7 +756,7 @@ export class CssAnimationProperty {
+                     }
+                     else {
+                         if (options.valueConverter && typeof boxedValue === 'string') {
+-                            boxedValue = options.valueConverter(boxedValue);
++                            boxedValue = options.valueConverter.call(this,boxedValue);
+                         }
+                         this[symbol] = boxedValue;
+                         if (this[computedSource] <= propertySource) {
+@@ -921,7 +921,7 @@ export class InheritedCssProperty extends CssProperty {
+             else {
+                 this[sourceKey] = valueSource;
+                 if (valueConverter && typeof boxedValue === 'string') {
+-                    value = valueConverter(boxedValue);
++                    value = valueConverter.call(this,boxedValue);
+                 }
+                 else {
+                     value = boxedValue;
