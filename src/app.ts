@@ -1,6 +1,6 @@
 import { createApp, registerElement } from "nativescript-vue";
 import Home from "./components/Home.vue";
-import { Button, Img, View, Br, Text } from "@triniwiz/nativescript-masonkit";
+import { Button, Img, View, Br, Text, Input } from "@triniwiz/nativescript-masonkit";
 import {
   B,
   Code,
@@ -28,5 +28,6 @@ registerElement("h4", () => H4);
 registerElement("code", () => Code);
 registerElement("sbutton", () => Button);
 registerElement("br", () => Br);
+registerElement("input", () => Input);
 
 createApp(Home).start();
