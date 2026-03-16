@@ -11,6 +11,7 @@ import {
   H4,
   P,
   Span,
+  Section
 } from "@triniwiz/nativescript-masonkit/web";
 import { Application } from "@nativescript/core";
 
@@ -29,5 +30,7 @@ registerElement("code", () => Code);
 registerElement("sbutton", () => Button);
 registerElement("br", () => Br);
 registerElement("input", () => Input);
+registerElement("section", () => Section);
+registerElement("form", () => Div);
 
 createApp(Home).start();
