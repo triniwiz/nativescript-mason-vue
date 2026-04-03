@@ -1,17 +1,8 @@
 diff --git a/node_modules/@nativescript/tailwind/src/removeUnsupported.js b/node_modules/@nativescript/tailwind/src/removeUnsupported.js
-index 6d71326..aa3ad31 100644
+index 6d71326..2c54cdc 100644
 --- a/node_modules/@nativescript/tailwind/src/removeUnsupported.js
 +++ b/node_modules/@nativescript/tailwind/src/removeUnsupported.js
-@@ -246,7 +246,7 @@ module.exports = (options = { debug: false }) => {
- module.exports.postcss = true;
- 
- const supportedProperties = {
--  "align-content": true,
-+   "align-content": true,
-   "align-items": true,
-   "align-self": true,
-   "android-selected-tab-highlight-color": true,
-@@ -260,8 +260,10 @@ const supportedProperties = {
+@@ -260,47 +260,96 @@ const supportedProperties = {
    "animation-iteration-count": true,
    "animation-name": true,
    "animation-timing-function": true,
@@ -22,16 +13,40 @@ index 6d71326..aa3ad31 100644
    "background-image": true,
    "background-position": true,
    "background-repeat": ["repeat", "repeat-x", "repeat-y", "no-repeat"],
-@@ -281,14 +283,45 @@ const supportedProperties = {
+   "background-size": true,
++  "backdrop-filter": true,
+   "border-bottom-color": true,
+   "border-bottom-left-radius": true,
+   "border-bottom-right-radius": true,
++  "border-bottom-style": true,
+   "border-bottom-width": true,
+   "border-color": true,
++  "border-image": true,
+   "border-left-color": true,
++  "border-left-style": true,
+   "border-left-width": true,
+   "border-radius": true,
+   "border-right-color": true,
++  "border-right-style": true,
+   "border-right-width": true,
+   "border-top-color": true,
+   "border-top-left-radius": true,
    "border-top-right-radius": true,
++  "border-top-style": true,
    "border-top-width": true,
    "border-width": true,
 +  bottom: true,
    "box-shadow": true,
 +  "box-sizing": true,
++  "caret-color": true,
    "clip-path": true,
 +  clear: true,
    color: true,
++  "corner-shape": true,
++  "corner-shape-top-left": true,
++  "corner-shape-top-right": true,
++  "corner-shape-bottom-right": true,
++  "corner-shape-bottom-left": true,
 +  display: true,
 +  gap: true,
 +  "grid-area": true,
@@ -67,8 +82,16 @@ index 6d71326..aa3ad31 100644
 +  float: true,
    font: true,
    "font-family": true,
++  "font-feature-settings": true,
    "font-size": true,
-@@ -301,6 +334,7 @@ const supportedProperties = {
++  "font-stretch": true,
+   "font-style": ["italic", "normal"],
+   "font-weight": true,
+   "font-variation-settings": true,
+   height: true,
++  hyphens: ["none", "manual", "auto"],
+   "highlight-color": true,
+   "horizontal-align": ["left", "center", "right", "stretch"],
    "justify-content": true,
    "justify-items": true,
    "justify-self": true,
@@ -76,7 +99,7 @@ index 6d71326..aa3ad31 100644
    "letter-spacing": true,
    "line-height": true,
    margin: true,
-@@ -314,11 +348,16 @@ const supportedProperties = {
+@@ -314,11 +363,17 @@ const supportedProperties = {
    "margin-inline": true,
    "margin-inline-start": true,
    "margin-inline-end": true,
@@ -84,6 +107,7 @@ index 6d71326..aa3ad31 100644
 +  "max-width": true,
    "min-height": true,
    "min-width": true,
++  "object-position": true,
    "off-background-color": true,
    opacity: true,
    order: true,
@@ -93,7 +117,7 @@ index 6d71326..aa3ad31 100644
    padding: true,
    "padding-block": true,
    "padding-bottom": true,
-@@ -330,15 +369,22 @@ const supportedProperties = {
+@@ -330,20 +385,30 @@ const supportedProperties = {
    "placeholder-color": true,
    "place-items": true,
    "place-self": true,
@@ -115,4 +139,12 @@ index 6d71326..aa3ad31 100644
 +  top: true,
    transform: true,
    rotate: true,
++  "unicode-bidi": ["normal", "embed", "bidi-override"],
    "vertical-align": ["top", "center", "bottom", "stretch"],
+   visibility: ["visible", "collapse"],
++  "word-spacing": true,
+   width: true,
++  "writing-mode": ["horizontal-tb", "vertical-rl", "vertical-lr"],
+   "z-index": true,
+ };
+ 
